@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<WMS_Capabilities version="1.3.0" xmlns="http://www.opengis.net/wms" xmlns:srv="http://schemas.opengis.net/iso/19139/20060504/srv/srv.xsd" xmlns:gmd="http://schemas.opengis.net/iso/19139/20060504/gmd/gmd.xsd" xmlns:gco="http://schemas.opengis.net/iso/19139/20060504/gco/gco.xsd" xmlns:inspire_vs="http://inspire.ec.europa.eu/schemas/inspire_vs/1.0" xmlns:gml="http://schemas.opengis.net/gml" xmlns:inspire_common="http://inspire.ec.europa.eu/schemas/common/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inspire.ec.europa.eu/schemas/inspire_vs/1.0
+http://inspire.ec.europa.eu/schemas/inspire_vs/1.0/inspire_vs.xsd">
+	<Service>
+		<Name>WMS</Name>
+		<Title>Ortofotos PNOA máxima actualidad</Title>
+		<Abstract>Servicio de visualización WMS 1.3.0 conforme al perfil Inspire de ISO 19128:2005 Geographic Information - Web Map Server Interface que muestra información encuadrada en el Tema 3 del Anexo II de la Directiva Inspire y en el Anexo I, Tema 7 de LISIGE: ortoimágenes. El servicio permite visualizar las ortofotos de máxima actualidad del Plan Nacional de Ortofotografía Aérea (PNOA) a partir de una escala aproximada 1:70 000. Para escalas menores (menos detalladas) se visualizan las imágenes de satélite Spot5. La cobertura PNOA está constituida por mosaicos de distinta fecha de adquisición y distinta resolución (50 y 25 cm). El servicio muestra esos mosaicos según el estilo por defecto definido en Inspire. El tamaño en píxeles permitido para las imágenes solicitadas está comprendido entre los valores: ancho (10 – 2 000) y alto (10 – 2 000). Este servicio soporta los datum ETRS89, WGS84 y ED50, en coordenadas geográficas y en coordenadas UTM. Los datum ETRS89 y ED50 son válidos para la zona de la Península y Baleares pero no para Canarias. Los datos se actualizan periódicamente. Estas actualizaciones se anuncian en el canal RSS del IGN (http://www.ign.es/ign/rss). El acceso o conexión a este servicio para obtener las funcionalidades para las que está pensado es gratuito en cualquier caso, siempre que se mencione la autoría del IGN como propietario del servicio y de su contenido (que puede almacenarse para uso particular) del siguiente modo: «PNOA cedido por © Instituto Geográfico Nacional de España»</Abstract>
+		<KeywordList>
+<Keyword>WMS</Keyword>
+<Keyword>Ortoimágenes</Keyword>
+<Keyword>PNOA</Keyword>
+<Keyword>Actualidad</Keyword>
+<Keyword vocabulary="ISO 19119 geographic services taxonomy, version 2.3">infoMapAccessService</Keyword>
+<Keyword vocabulary="ISO 19119 geographic services taxonomy, version 2.3">infoManagementService</Keyword>
+<Keyword>Spain</Keyword>
+<Keyword>España</Keyword>
+<Keyword>IGN</Keyword>
+<Keyword>View</Keyword>
+<Keyword>WMS 1.3.0</Keyword>
+<Keyword>OGC</Keyword>
+		</KeywordList>
+		<OnlineResource xlink:type="simple" xlink:href="http://www.ign.es"/>
+		<ContactInformation>
+<ContactPersonPrimary>
+	<ContactPerson/>
+	<ContactOrganization>Instituto Geográfico Nacional</ContactOrganization>
+</ContactPersonPrimary>
+<ContactPosition>pointOfContact</ContactPosition>
+<ContactElectronicMailAddress>ign@fomento.es</ContactElectronicMailAddress>
+		</ContactInformation>
+		<Fees>no conditions apply</Fees>
+		<AccessConstraints>OtherConstraints. Se permite el acceso a este servicio en cualquier caso siempre que se mencione la autoría del IGN como propietario del servicio y de su contenido (que puede almacenarse para uso particular) del siguiente modo: «PNOA cedido por © Instituto Geográfico Nacional de España»</AccessConstraints>
+		<MaxWidth>2048</MaxWidth>
+		<MaxHeight>2048</MaxHeight>
+	</Service>
+	<Capability>
+		<Request>
+			<GetCapabilities>
+				<Format>text/xml</Format>
+				<DCPType>
+					<HTTP>
+						<Get>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.ign.es/wms-inspire/pnoa-ma?"/>
+						</Get>
+					</HTTP>
+				</DCPType>
+			</GetCapabilities>
+			<GetMap>
+				<Format>image/png</Format>
+				<Format>image/jpeg</Format>
+				<Format>image/gif</Format>
+				<Format>image/bmp</Format>
+				<DCPType>
+					<HTTP>
+						<Get>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.ign.es/wms-inspire/pnoa-ma?"/>
+						</Get>
+					</HTTP>
+				</DCPType>
+			</GetMap>
+			<GetFeatureInfo>
+				<Format>text/html</Format>
+				<Format>text/plain</Format>
+				<Format>text/xml</Format>
+				<DCPType>
+					<HTTP>
+						<Get>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.ign.es/wms-inspire/pnoa-ma?"/>
+						</Get>
+					</HTTP>
+				</DCPType>
+			</GetFeatureInfo>	
+		</Request>
+		<Exception>
+			<Format>XML</Format>
+			<Format>INIMAGE</Format>
+			<Format>BLANK</Format>
+		</Exception>
+		<inspire_vs:ExtendedCapabilities>
+			<inspire_common:MetadataUrl xsi:type="inspire_common:resourceLocatorType">
+				<inspire_common:URL>http://www.ign.es/csw-inspire/srv/spa/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;outputSchema=http://www.isotc211.org/2005/gmd&amp;ElementSetName=full&amp;ID=spaignwms_ortofotosPNOA_MA_2013</inspire_common:URL>
+				<inspire_common:MediaType>application/vnd.ogc.csw.GetRecordByIdResponse_xml</inspire_common:MediaType>
+			</inspire_common:MetadataUrl>
+			<inspire_common:SupportedLanguages xsi:type="inspire_common:supportedLanguagesType">
+					<inspire_common:DefaultLanguage>
+						<inspire_common:Language>spa</inspire_common:Language>
+					</inspire_common:DefaultLanguage>
+					<inspire_common:SupportedLanguage>
+						<inspire_common:Language>eng</inspire_common:Language>
+				</inspire_common:SupportedLanguage>
+			</inspire_common:SupportedLanguages>
+			<inspire_common:ResponseLanguage>
+				<inspire_common:Language>spa</inspire_common:Language>
+			</inspire_common:ResponseLanguage>
+		</inspire_vs:ExtendedCapabilities>
+		<Layer>
+			<Title>Ortofotos PNOA máxima actualidad</Title>
+			<Abstract>Servicio de visualización WMS 1.3.0 conforme al perfil Inspire de ISO 19128:2005 Geographic Information - Web Map Server Interface que muestra información encuadrada en el Tema 3 del Anexo II de la Directiva Inspire y en el Anexo I, Tema 7 de LISIGE: ortoimágenes. El servicio permite visualizar las ortofotos de máxima actualidad del Plan Nacional de Ortofotografía Aérea (PNOA) a partir de una escala aproximada 1:70 000. Para escalas menores (menos detalladas) se visualizan las imágenes de satélite Spot5. La cobertura PNOA está constituida por mosaicos de distinta fecha de adquisición y distinta resolución (50 y 25 cm). El servicio muestra esos mosaicos según el estilo por defecto definido en Inspire. El tamaño en píxeles permitido para las imágenes solicitadas está comprendido entre los valores: ancho (10 – 2 000) y alto (10 – 2 000). Este servicio soporta los datum ETRS89, WGS84 y ED50, en coordenadas geográficas y en coordenadas UTM. Los datum ETRS89 y ED50 son válidos para la zona de la Península y Baleares pero no para Canarias. Los datos se actualizan periódicamente. Estas actualizaciones se anuncian en el canal RSS del IGN (http://www.ign.es/ign/rss). El acceso o conexión a este servicio para obtener las funcionalidades para las que está pensado es gratuito en cualquier caso, siempre que se mencione la autoría del IGN como propietario del servicio y de su contenido (que puede almacenarse para uso particular) del siguiente modo: «PNOA cedido por © Instituto Geográfico Nacional de España»</Abstract>
+			<CRS>EPSG:32630</CRS>
+			<CRS>EPSG:25830</CRS>
+			<CRS>EPSG:4230</CRS>
+			<CRS>EPSG:4258</CRS>
+			<CRS>EPSG:4326</CRS>
+			<CRS>EPSG:23029</CRS>
+			<CRS>EPSG:23030</CRS>
+			<CRS>EPSG:23031</CRS>
+			<CRS>EPSG:25828</CRS>
+			<CRS>EPSG:25829</CRS>
+			<CRS>EPSG:25831</CRS>
+			<CRS>EPSG:32628</CRS>
+			<CRS>EPSG:32629</CRS>
+			<CRS>EPSG:32631</CRS>
+			<CRS>EPSG:3857</CRS>
+			<CRS>CRS:84</CRS>
+			<EX_GeographicBoundingBox>
+				<westBoundLongitude>-21.27413142</westBoundLongitude>
+				<eastBoundLongitude>4.85031051</eastBoundLongitude>
+				<southBoundLatitude>27.45724563</southBoundLatitude>
+				<northBoundLatitude>43.89601149</northBoundLatitude>
+			</EX_GeographicBoundingBox>
+			<BoundingBox CRS="EPSG:25830" minx="-1323414.87" miny="3037095.1" maxx="1277100.51" maxy="5025545.19"/>
+			<BoundingBox CRS="EPSG:4230" minx="27.45849276" miny="-21.27288825" maxx="43.89733377" maxy="4.85143425"/>
+			<BoundingBox CRS="EPSG:4258" minx="27.45724563" miny="-21.27413142" maxx="43.89601149" maxy="4.85031051"/>
+			<BoundingBox CRS="EPSG:4326" minx="27.45724563" miny="-21.27413142" maxx="43.89601149" maxy="4.85031051"/>
+			<BoundingBox CRS="EPSG:23029" minx="-718099.97" miny="3037291.55" maxx="1876414.38" maxy="4954734.53"/>
+			<BoundingBox CRS="EPSG:23030" minx="-1323340.96" miny="3037281.79" maxx="1277215.39" maxy="5025760.56"/>
+			<BoundingBox CRS="EPSG:23031" minx="-1940035.7" miny="3037273.1" maxx="682944.94" maxy="5156047.44"/>
+			<BoundingBox CRS="EPSG:25828" minx="-120669.07" miny="3037104.99" maxx="2484153.74" maxy="5055902.24"/>
+			<BoundingBox CRS="EPSG:25829" minx="-718189.03" miny="3037099.72" maxx="1876280.02" maxy="4954513.21"/>
+			<BoundingBox CRS="EPSG:25831" minx="-1940095.51" miny="3037091.13" maxx="682848.97" maxy="5155836.3"/>
+			<BoundingBox CRS="EPSG:32628" minx="-120669.07" miny="3037104.99" maxx="2484153.74" maxy="5055902.24"/>
+			<BoundingBox CRS="EPSG:32629" minx="-718189.03" miny="3037099.72" maxx="1876280.02" maxy="4954513.21"/>
+			<BoundingBox CRS="EPSG:32630" minx="-1323414.87" miny="3037095.1" maxx="1277100.51" maxy="5025545.19"/>
+			<BoundingBox CRS="EPSG:32631" minx="-1940095.51" miny="3037091.13" maxx="682848.97" maxy="5155836.3"/>
+			<BoundingBox CRS="EPSG:3857" minx="-2368225.47" miny="3180715.61" maxx="539934.09" maxy="5449363.79"/>
+			<BoundingBox CRS="CRS:84" minx="-21.27413142" miny="27.45724563" maxx="4.85031051" maxy="43.89601149"/>
+<AuthorityURL name="IGN">
+	<OnlineResource xlink:type="simple" xlink:href="http://www.ign.es"/>
+</AuthorityURL>
+			<Layer queryable="0" opaque="0">
+				<Name>OI.MosaicElement</Name>
+				<Title>Mosaicos</Title>
+				<Abstract>Áreas de delimitación de las imágenes que contribuyen en la creación de los mosaicos de ortofotos del mismo año de adquisición.</Abstract>
+				<KeywordList>
+<Keyword>Ortofotografías</Keyword>
+<Keyword>Ortofotos</Keyword>
+<Keyword>PNOA</Keyword>
+<Keyword>España</Keyword>
+				</KeywordList>
+				<EX_GeographicBoundingBox>
+					<westBoundLongitude>-21.27336849</westBoundLongitude>
+					<eastBoundLongitude>4.80165975</eastBoundLongitude>
+					<southBoundLatitude>27.45724563</southBoundLatitude>
+					<northBoundLatitude>43.8930513</northBoundLatitude>
+				</EX_GeographicBoundingBox>
+				<BoundingBox CRS="EPSG:25830" minx="-1005513.05" miny="3130176.43" maxx="1129450.66" maxy="4860503.47"/>
+				<BoundingBox CRS="EPSG:4230" minx="27.45724563" miny="-21.27336849" maxx="43.8941169" maxy="4.80165975"/>
+				<BoundingBox CRS="EPSG:4258" minx="27.45724563" miny="-21.27336849" maxx="43.8930513" maxy="4.80165975"/>
+				<BoundingBox CRS="EPSG:4326" minx="27.45724563" miny="-21.27336849" maxx="43.8930513" maxy="4.80165975"/>
+				<BoundingBox CRS="EPSG:23029" minx="-510559.39" miny="3070564.54" maxx="1723216.5" maxy="4924428.12"/>
+				<BoundingBox CRS="EPSG:23030" minx="-1005577.78" miny="3130220.76" maxx="1129562.95" maxy="4860714.74"/>
+				<BoundingBox CRS="EPSG:23031" minx="-1615824.85" miny="3113648.9" maxx="645347.67" maxy="4990931.74"/>
+				<BoundingBox CRS="EPSG:25828" minx="-16265.47" miny="3040990.76" maxx="2324327.61" maxy="5025415.38"/>
+				<BoundingBox CRS="EPSG:25829" minx="-510513.04" miny="3070520.66" maxx="1723164.34" maxy="4924335.87"/>
+				<BoundingBox CRS="EPSG:25831" minx="-1615734.38" miny="3113604.91" maxx="645340.97" maxy="4990834.13"/>
+				<BoundingBox CRS="EPSG:32628" minx="-16265.47" miny="3040990.76" maxx="2324327.61" maxy="5025415.38"/>
+				<BoundingBox CRS="EPSG:32629" minx="-510513.04" miny="3070520.66" maxx="1723164.34" maxy="4924335.87"/>
+				<BoundingBox CRS="EPSG:32630" minx="-1005512.61" miny="3130176.38" maxx="1129450.66" maxy="4860503.47"/>
+				<BoundingBox CRS="EPSG:32631" minx="-1615734.38" miny="3113604.91" maxx="645340.97" maxy="4990834.13"/>
+				<BoundingBox CRS="EPSG:3857" minx="-2368140.54" miny="3180715.62" maxx="534518.31" maxy="5448906.52"/>
+			<BoundingBox CRS="CRS:84" minx="-21.27336849" miny="27.45724563" maxx="4.80165975" maxy="43.8930513"/>
+<Attribution>
+	<Title>Cedido por © Instituto Geográfico Nacional de España</Title>
+	<OnlineResource xlink:type="simple" xlink:href="http://pnoa.wordpress.com"/>
+</Attribution>
+<Identifier authority="IGN">PNOA_MA_mosaicos</Identifier>
+<MetadataURL type="ISO19115:2003">
+	<Format>text/plain</Format>
+	<OnlineResource xlink:type="simple" xlink:href="http://www.ign.es/csw-inspire/srv/spa/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;outputSchema=http://www.isotc211.org/2005/gmd&amp;ElementSetName=full&amp;ID=spaigncapaOI.MosaicElement-wmspnoama20130315"/>
+</MetadataURL>
+<Style>
+	<Name>OI.MosaicElement.Default</Name>
+	<Title>Estilo por defecto de los mosaicos</Title>
+	<Abstract>Los mosaicos se representan mediante líneas magenta (#ff00ff) de 1 pixel de ancho, sin relleno. El atributo año asociado a cada geometría se representa mediante una etiqueta de texto en Arial 10 magenta (#ff00ff).</Abstract>
+	<LegendURL width="243" height="69">
+		<Format>image/png</Format>
+		<OnlineResource xlink:type="simple" xlink:href="http://www.ign.es/Server-MAinspire/leyenda/mosaico.png"/>
+	</LegendURL>
+</Style>
+			</Layer>
+			<Layer queryable="1" opaque="1">
+				<Name>OI.OrthoimageCoverage</Name>
+				<Title>Cobertura de ortoimágenes</Title>
+				<Abstract>Cobertura ráster opaca de imágenes de satélite y ortofotos PNOA de máxima actualidad (MA). Rangos de visualización: Imagen Spot5 de 20 m de resolución hasta la escala aproximada 1:70 000; a partir de aquí ortofotografías PNOA MA de 0.25 m o 0.50 m de resolución, según la zona.</Abstract>
+				<KeywordList>
+<Keyword>Ortofotografías</Keyword>
+<Keyword>Ortofotos</Keyword>
+<Keyword>PNOA</Keyword>
+<Keyword>España</Keyword>
+				</KeywordList>
+				<EX_GeographicBoundingBox>
+					<westBoundLongitude>-21.27413142</westBoundLongitude>
+					<eastBoundLongitude>4.85031051</eastBoundLongitude>
+					<southBoundLatitude>27.45724653</southBoundLatitude>
+					<northBoundLatitude>43.89601149</northBoundLatitude>
+				</EX_GeographicBoundingBox>
+				<BoundingBox CRS="EPSG:25830" minx="-1009306.66" miny="3102303.01" maxx="1136331.65" maxy="4869008.95"/>
+				<BoundingBox CRS="EPSG:4230" minx="27.45724653" miny="-21.27413142" maxx="43.89707817" maxy="4.85031051"/>
+				<BoundingBox CRS="EPSG:4258" minx="27.45724653" miny="-21.27413142" maxx="43.89601149" maxy="4.85031051"/>
+				<BoundingBox CRS="EPSG:4326" minx="27.45724653" miny="-21.27413142" maxx="43.89601149" maxy="4.85031051"/>
+				<BoundingBox CRS="EPSG:23029" minx="-510580.85" miny="3066723" maxx="1727198.55" maxy="4925019.8"/>
+				<BoundingBox CRS="EPSG:23030" minx="-1009370.96" miny="3102347.75" maxx="1136439.54" maxy="4869214.31"/>
+				<BoundingBox CRS="EPSG:23031" minx="-1618624.47" miny="3113455.03" maxx="649274.29" maxy="4991233.98"/>
+				<BoundingBox CRS="EPSG:25828" minx="-16307.36" miny="3040990.86" maxx="2328382.57" maxy="5026317.49"/>
+				<BoundingBox CRS="EPSG:25829" minx="-510534.49" miny="3066679.79" maxx="1727146.22" maxy="4924927.52"/>
+				<BoundingBox CRS="EPSG:25831" minx="-1618533.81" miny="3113411.04" maxx="649267.4" maxy="4991136.36"/>
+				<BoundingBox CRS="EPSG:32628" minx="-16307.36" miny="3040990.86" maxx="2328382.57" maxy="5026317.49"/>
+				<BoundingBox CRS="EPSG:32629" minx="-510534.49" miny="3066679.79" maxx="1727146.22" maxy="4924927.52"/>
+				<BoundingBox CRS="EPSG:32630" minx="-1009306.66" miny="3102303.01" maxx="1136331.65" maxy="4869008.95"/>
+				<BoundingBox CRS="EPSG:32631" minx="-1618533.81" miny="3113411.04" maxx="649267.4" maxy="4991136.36"/>
+				<BoundingBox CRS="EPSG:3857" minx="-2368225.48" miny="3180715.73" maxx="539934.09" maxy="5449363.8"/>
+			<BoundingBox CRS="CRS:84" minx="-21.27413142" miny="27.45724653" maxx="4.85031051" maxy="43.89601149"/>
+<Attribution>
+	<Title>Cedido por © Instituto Geográfico Nacional de España</Title>
+	<OnlineResource xlink:type="simple" xlink:href="http://pnoa.wordpress.com"/>
+</Attribution>
+<Identifier authority="IGN">PNOA_MA_coberturas</Identifier>
+<MetadataURL type="ISO19115:2003">
+	<Format>text/plain</Format>
+	<OnlineResource xlink:type="simple" xlink:href="http://www.ign.es/csw-inspire/srv/spa/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;outputSchema=http://www.isotc211.org/2005/gmd&amp;ElementSetName=full&amp;ID=spaigncapaOI.OrthoimageCoverage-wmspnoama20130315"/>
+</MetadataURL>
+<Style>
+	<Name>OI. OrthoimageCoverage.Default</Name>
+	<Title>Estilo por defecto de coberturas de ortoimágenes</Title>
+	<Abstract>Las coberturas de ortoimágenes se renderizan como datos raster</Abstract>
+	<LegendURL width="243" height="69">
+		<Format>image/png</Format>
+		<OnlineResource xlink:type="simple" xlink:href="http://www.ign.es/Server-MAinspire/leyenda/ortoimagenes.png"/>
+	</LegendURL>
+</Style>
+			</Layer>
+			<Layer queryable="0" opaque="0">
+				<Name>resoluciones</Name>
+				<Title>Resoluciones</Title>
+				<Abstract>Capa que muestra gráficamente la resolución de las ortofotos PNOA</Abstract>
+				<KeywordList>
+<Keyword>Resolución</Keyword>
+<Keyword>Ortofotos</Keyword>
+<Keyword>PNOA</Keyword>
+<Keyword>España</Keyword>
+				</KeywordList>
+				<EX_GeographicBoundingBox>
+					<westBoundLongitude>-18.21836664</westBoundLongitude>
+					<eastBoundLongitude>4.76846757</eastBoundLongitude>
+					<southBoundLatitude>27.62647434</southBoundLatitude>
+					<northBoundLatitude>43.88507802</northBoundLatitude>
+				</EX_GeographicBoundingBox>
+				<BoundingBox CRS="EPSG:25830" minx="-1006234.48" miny="3101893.86" maxx="1139272.79" maxy="4869168.7"/>
+				<BoundingBox CRS="EPSG:4230" minx="27.62647434" miny="-18.21836664" maxx="43.88617377" maxy="4.7695878"/>
+				<BoundingBox CRS="EPSG:4258" minx="27.62647434" miny="-18.21836664" maxx="43.88510304" maxy="4.7695878"/>
+				<BoundingBox CRS="EPSG:4326" minx="27.62647434" miny="-18.21836664" maxx="43.88507802" maxy="4.76846757"/>
+				<BoundingBox CRS="EPSG:23029" minx="-406498.47" miny="3066317.91" maxx="1677502.37" maxy="4922961.43"/>
+				<BoundingBox CRS="EPSG:23030" minx="-1006298.65" miny="3101938.59" maxx="1139380.69" maxy="4869374.06"/>
+				<BoundingBox CRS="EPSG:23031" minx="-1615513.02" miny="3168226.21" maxx="642782.15" maxy="4924264.68"/>
+				<BoundingBox CRS="EPSG:25828" minx="187619.99" miny="3059829.99" maxx="2232179.83" maxy="5023744.02"/>
+				<BoundingBox CRS="EPSG:25829" minx="-406459.97" miny="3066274.71" maxx="1677450.42" maxy="4922869.23"/>
+				<BoundingBox CRS="EPSG:25831" minx="-1615422.49" miny="3168178.56" maxx="642775.56" maxy="4924065.99"/>
+				<BoundingBox CRS="EPSG:32628" minx="187619.98" miny="3059829.99" maxx="2232112.49" maxy="5023608.08"/>
+				<BoundingBox CRS="EPSG:32629" minx="-406459.97" miny="3066274.71" maxx="1677375.1" maxy="4922740.45"/>
+				<BoundingBox CRS="EPSG:32630" minx="-1006234.48" miny="3101893.86" maxx="1139272.79" maxy="4869168.7"/>
+				<BoundingBox CRS="EPSG:32631" minx="-1615422.49" miny="3168178.56" maxx="642687.59" maxy="4924065.99"/>
+				<BoundingBox CRS="EPSG:3857" minx="-2028059.29" miny="3201961.84" maxx="530823.38" maxy="5447674.93"/>
+			<BoundingBox CRS="CRS:84" minx="-18.21836664" miny="27.62647434" maxx="4.76846757" maxy="43.88507802"/>
+<Attribution>
+	<Title>Cedido por © Instituto Geográfico Nacional de España</Title>
+	<OnlineResource xlink:type="simple" xlink:href="http://pnoa.wordpress.com"/>
+</Attribution>
+<Identifier authority="IGN">PNOA_MA_resoluciones</Identifier>
+<MetadataURL type="ISO19115:2003">
+	<Format>text/plain</Format>
+	<OnlineResource xlink:type="simple" xlink:href="http://www.ign.es/csw-inspire/srv/spa/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;outputSchema=http://www.isotc211.org/2005/gmd&amp;ElementSetName=full&amp;ID=spaigncaparesolucionespnoama20111121"/>
+</MetadataURL>
+<Style>
+	<Name>default</Name>
+	<Title>default</Title>
+	<LegendURL width="151" height="90">
+		<Format>image/png</Format>
+		<OnlineResource xlink:type="simple" xlink:href="http://www.ign.es/Server-MAinspire/leyenda/resolucion.png"/>
+	</LegendURL>
+</Style>
+			</Layer>
+			<Layer queryable="0" opaque="0">
+				<Name>fechas</Name>
+				<Title>Fechas</Title>
+				<Abstract>Capa que muestra gráficamente el año de vuelo de las ortofotos PNOA</Abstract>
+				<KeywordList>
+<Keyword>Fecha</Keyword>
+<Keyword>Ortofotos</Keyword>
+<Keyword>PNOA</Keyword>
+<Keyword>España</Keyword>
+				</KeywordList>
+				<EX_GeographicBoundingBox>
+					<westBoundLongitude>-18.21836664</westBoundLongitude>
+					<eastBoundLongitude>4.76846757</eastBoundLongitude>
+					<southBoundLatitude>27.62647434</southBoundLatitude>
+					<northBoundLatitude>43.88507802</northBoundLatitude>
+				</EX_GeographicBoundingBox>
+				<BoundingBox CRS="EPSG:25830" minx="-1006234.48" miny="3101893.86" maxx="1139272.79" maxy="4869168.7"/>
+				<BoundingBox CRS="EPSG:4230" minx="27.62647434" miny="-18.21836664" maxx="43.88617377" maxy="4.7695878"/>
+				<BoundingBox CRS="EPSG:4258" minx="27.62647434" miny="-18.21836664" maxx="43.88510304" maxy="4.7695878"/>
+				<BoundingBox CRS="EPSG:4326" minx="27.62647434" miny="-18.21836664" maxx="43.88507802" maxy="4.76846757"/>
+				<BoundingBox CRS="EPSG:23029" minx="-406498.47" miny="3066317.91" maxx="1677502.37" maxy="4922961.43"/>
+				<BoundingBox CRS="EPSG:23030" minx="-1006298.65" miny="3101938.59" maxx="1139380.69" maxy="4869374.06"/>
+				<BoundingBox CRS="EPSG:23031" minx="-1615513.02" miny="3168226.21" maxx="642782.15" maxy="4924264.68"/>
+				<BoundingBox CRS="EPSG:25828" minx="187619.99" miny="3059829.99" maxx="2232179.83" maxy="5023744.02"/>
+				<BoundingBox CRS="EPSG:25829" minx="-406459.97" miny="3066274.71" maxx="1677450.42" maxy="4922869.23"/>
+				<BoundingBox CRS="EPSG:25831" minx="-1615422.49" miny="3168178.56" maxx="642775.56" maxy="4924065.99"/>
+				<BoundingBox CRS="EPSG:32628" minx="187619.98" miny="3059829.99" maxx="2232112.49" maxy="5023608.08"/>
+				<BoundingBox CRS="EPSG:32629" minx="-406459.97" miny="3066274.71" maxx="1677375.1" maxy="4922740.45"/>
+				<BoundingBox CRS="EPSG:32630" minx="-1006234.48" miny="3101893.86" maxx="1139272.79" maxy="4869168.7"/>
+				<BoundingBox CRS="EPSG:32631" minx="-1615422.49" miny="3168178.56" maxx="642687.59" maxy="4924065.99"/>
+				<BoundingBox CRS="EPSG:3857" minx="-2028059.29" miny="3201961.84" maxx="530823.38" maxy="5447674.93"/>
+			<BoundingBox CRS="CRS:84" minx="-18.21836664" miny="27.62647434" maxx="4.76846757" maxy="43.88507802"/>
+<Attribution>
+	<Title>Cedido por © Instituto Geográfico Nacional de España</Title>
+	<OnlineResource xlink:type="simple" xlink:href="http://pnoa.wordpress.com"/>
+</Attribution>
+<Identifier authority="IGN">PNOA_MA_fechas</Identifier>
+<MetadataURL type="ISO19115:2003">
+	<Format>text/plain</Format>
+	<OnlineResource xlink:type="simple" xlink:href="http://www.ign.es/csw-inspire/srv/spa/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;outputSchema=http://www.isotc211.org/2005/gmd&amp;ElementSetName=full&amp;ID=spaigncapafechaspnoama20111121"/>
+</MetadataURL>
+<Style>
+	<Name>default</Name>
+	<Title>default</Title>
+	<LegendURL width="151" height="233">
+		<Format>image/png</Format>
+		<OnlineResource xlink:type="simple" xlink:href="http://www.ign.es/Server-MAinspire/leyenda/fecha.png"/>
+	</LegendURL>
+</Style>
+			</Layer>
+		</Layer>
+	</Capability>
+</WMS_Capabilities>

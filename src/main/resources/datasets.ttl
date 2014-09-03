@@ -1,0 +1,36 @@
+#
+#   Container Integration Test Data
+#
+
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix container: <http://linkedmap.unizar.es/def/> .
+@prefix definition: <http://linkedmap.unizar.es/def/definition/> .
+@prefix lms: <http://linkedmap.unizar.es/def/lms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+<http://linkedmap.unizar.es/id/datasets/BCN> a lms:dataset ;
+    dc:title "Base Cartográfica Numérica" ;
+	rdfs:label "BCN" ;
+	dc:description "The Base Cartográfica Numérica scale 1:25000 (Numerical Cartographic Database, BCN25) is a 2D Geospatial Database (GDB) developed by the IGN that provides a continuous coverage of Spain. The Base Topográfica Nacional scale 1:25000 (National Topographic Database, BTN25) is a 3D GDB developed by the IGN in 2006 as a replacement of the BCN25 . Both datasets are available for download at the Centro de Descargas  of the CNIG in Esri shapefile format and divided into map sheets. BTN25 has several derivate products." ;
+	rdfs:seeAlso <http://centrodedescargas.cnig.es/CentroDescargas/> ;
+
+.
+
+<http://linkedmap.unizar.es/id/datasets/BTN> a lms:dataset ;
+    dc:title "Base Cartográfica Numérica" ;
+	rdfs:label "BTN" ;
+	dc:description "The Base Cartográfica Numérica scale 1:25000 (Numerical Cartographic Database, BCN25) is a 2D Geospatial Database (GDB) developed by the IGN that provides a continuous coverage of Spain. The Base Topográfica Nacional scale 1:25000 (National Topographic Database, BTN25) is a 3D GDB developed by the IGN in 2006 as a replacement of the BCN25 . Both datasets are available for download at the Centro de Descargas  of the CNIG in Esri shapefile format and divided into map sheets. BTN25 has several derivate products." ;
+	rdfs:seeAlso <http://centrodedescargas.cnig.es/CentroDescargas/> ;
+
+.
+
+<http://linkedmap.unizar.es/id/datasets/OSM> a lms:dataset ;
+    dc:title "Open Street Maps" ;
+	rdfs:label "OSM" ;
+	dc:description "The OpenStreetMap project is a collective project created in 2004 as response to the commercial approach of public funded and government-run mapping projects. The main goal of OSM if to create a worldwide geospatial database focused on local knowledge with an open license." ;
+	rdfs:seeAlso <http://www.openstreetmap.org/> ;
+
+	
+	
+        

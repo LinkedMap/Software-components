@@ -1,0 +1,14 @@
+#
+#   Container Integration Test Response #1
+#
+
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix container: <http://localhost/id/> .
+@prefix server: <http://localhost/id/servers/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<>
+    foaf:primaryTopic container:servers .
+    
+container:servers a ldp:BasicContainer ;
+    ldp:contains server:ign_base . 

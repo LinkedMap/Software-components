@@ -1,0 +1,13 @@
+#
+#   Container Integration Test Data
+#
+
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix container: <http://linkedmap.unizar.es/def/> .
+@prefix definition: <http://linkedmap.unizar.es/def/definition/> .
+@prefix lms: <http://linkedmap.unizar.es/def/lms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+container:definition a ldp:BasicContainer ;
+    ldp:contains definition:example . 
+        

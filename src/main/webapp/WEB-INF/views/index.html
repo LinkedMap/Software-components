@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: head">
+</head>
+<body>
+    <div th:include="layout :: header" />
+    <div id="reports-container"
+        th:class="'panel panel-'+${reports.maxLevel}">
+        <!-- ========================================================== -->
+        <!-- Reports  heading                                           -->
+        <!-- ========================================================== -->
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                status <small>: <a
+                    th:if="${reports.maxLevel} != 'success'"
+                    data-toggle="collapse"
+                    data-parent="#reports-container"
+                    href="#collapse-reports"
+                    th:text="${reports.summary}" /> <span
+                    th:if="${reports.maxLevel} == 'success'">Ok</span></small>
+            </h4>
+        </div>
+        <div th:if="${reports.maxLevel} != 'success'"
+            id="collapse-reports" class="panel-collapse collapse">
+            <div class="panel-body">
+                <ul class="list-group no-margin-bottom">
+                    <li th:each="report : ${reports.reports}"
+                        th:class="'pannel no-padding list-group-item bg-'+${report.level}"><div
+                            class="panel-heading" th:text="${report.message}"/></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="resources_container">
+        <div id="resources" class="panel-group">
+            <div th:each="resource : ${resources}"
+                th:id="'resource_'+${resource.name}"
+                class="panel panel-default">
+                <!-- ========================================================== -->
+                <!-- Resource heading                                           -->
+                <!-- ========================================================== -->
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <span th:text="${resource.name}" /> <small>:
+                            <a th:text="${resource.description}"
+                            data-toggle="collapse"
+                            data-parent="#resources"
+                            th:href="'#collapse'+${resource.name}" />
+                        </small>
+                    </h4>
+                </div>
+                <!-- ========================================================== -->
+                <!-- Resource panel                                             -->
+                <!-- ========================================================== -->
+                <div th:id="'collapse'+${resource.name}"
+                    class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul
+                            class="list-group panel-group no-margin-bottom">
+                            <li
+                                th:each="endpoint :${resource.endpoints}"
+                                th:class="'pannel no-padding list-group-item bg-'+${endpoint.method.toLowerCase()}">
+                                <!-- ========================================================== -->
+                                <!-- Endpoint heading                                           -->
+                                <!-- ========================================================== -->
+                                <div class="panel-heading">
+                                    <small
+                                        th:class="'text-center bg-'+${endpoint.method.toLowerCase()}+'-strong'"
+                                        th:text="'&nbsp;'+${endpoint.method.toUpperCase()}+'&nbsp;'" />
+                                    <a th:text="${endpoint.path}"
+                                        data-toggle="collapse"
+                                        th:href="'#collapse'+${resource.name}+${endpoint.hashCode()}" />
+                                    <small
+                                        th:class="'bg-'+${endpoint.method.toLowerCase()}+'-description float-right'"
+                                        th:text="${endpoint.description}" />
+                                </div> <!-- ========================================================== -->
+                                <!-- Endpoint panel                                             -->
+                                <!-- ========================================================== -->
+                                <div
+                                    th:id="'collapse'+${resource.name}+${endpoint.hashCode()}"
+                                    class="panel-collapse collapse">
+                                    <div
+                                        th:class="'panel-body bg-'+${endpoint.method.toLowerCase()}+'-border'">
+                                        <!-- ========================================================== -->
+                                        <!-- Implementation notes                                       -->
+                                        <!-- ========================================================== -->
+                                        <th:block
+                                            if="${endpoint.implementationNotes}">
+                                            <h5
+                                                th:class="'bg-'+${endpoint.method.toLowerCase()}+'-description'">Implementation
+                                                Notes</h5>
+                                            <p
+                                                th:text="${endpoint.implementationNotes}" />
+                                        </th:block>
+                                        <!-- ========================================================== -->
+                                        <!-- Form                                                       -->
+                                        <!-- ========================================================== -->
+                                        <form role="form" class="form"
+                                            action="">
+                                            <!-- ========================================================== -->
+                                            <!-- Hidden form parameters                                     -->
+                                            <!-- ========================================================== -->
+                                            <input type="hidden"
+                                                name="path"
+                                                th:value="${endpoint.path}" />
+                                            <input type="hidden"
+                                                name="result"
+                                                th:value="'result'+${endpoint.hashCode()}" />
+                                            <input type="hidden"
+                                                name="info"
+                                                th:value="'info'+${endpoint.hashCode()}" />
+                                            <input type="hidden"
+                                                name="headers"
+                                                th:value="'headers'+${endpoint.hashCode()}" />
+
+                                            <th:block
+                                                th:if="${endpoint.contentTypes.size() &gt; 0}">
+                                                <!-- ========================================================== -->
+                                                <!-- Response Content Type                                      -->
+                                                <!-- ========================================================== -->
+                                                <h5
+                                                    th:class="'bg-'+${endpoint.method.toLowerCase()}+'-description'">
+                                                    Response Content
+                                                    Types <select
+                                                        name="responseContentType">
+                                                        <option
+                                                            th:each="contentType : ${endpoint.contentTypes}"
+                                                            th:value="${contentType}"
+                                                            th:text="${contentType}"
+                                                            th:selected="${contentType.equals(endpoint.defaultContentType)}" />
+                                                    </select>
+                                                </h5>
+                                            </th:block>
+                                            <th:block
+                                                th:if="${endpoint.parameters.size() &gt; 0}">
+                                                <!-- ========================================================== -->
+                                                <!-- Path parameters                                            -->
+                                                <!-- ========================================================== -->
+                                                <h5
+                                                    th:class="'bg-'+${endpoint.method.toLowerCase()}+'-description'">Parameters</h5>
+                                                <small>
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Parameter</th>
+                                                                <th>Value</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr
+                                                                th:each="parameter : ${endpoint.parameters}">
+                                                                <td
+                                                                    th:text="${parameter}" />
+                                                                <td><input
+                                                                    th:name="${parameter}" value=" " />&nbsp;</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </small>
+                                            </th:block>
+                                            <!-- ========================================================== -->
+                                            <!-- Submit button                                              -->
+                                            <!-- ========================================================== -->
+                                            <button type="submit"
+                                                class="btn btn-sm btn-default">Request</button>
+                                        </form>
+                                        <!-- ========================================================== -->
+                                        <!-- Response                                              -->
+                                        <!-- ========================================================== -->
+                                        <h5
+                                            th:class="'bg-'+${endpoint.method.toLowerCase()}+'-description'">Response</h5>
+                                        <div class="panel panel-info"
+                                            th:id="'info'+${endpoint.hashCode()}">
+                                            <div class="panel-heading">Waiting
+                                                your request...</div>
+                                            <div
+                                                th:id="'headers'+${endpoint.hashCode()}"
+                                                class="panel-body hideThis" />
+                                            <div
+                                                th:id="'result'+${endpoint.hashCode()}"
+                                                class="panel-body hideThis" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:include="layout :: footer" />
+</body>
+</html>
