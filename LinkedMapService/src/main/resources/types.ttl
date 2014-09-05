@@ -1,0 +1,424 @@
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix container: <http://linkedmap.unizar.es/def/> .
+@prefix definition: <http://linkedmap.unizar.es/def/definition/> .
+@prefix lms: <http://linkedmap.unizar.es/def/lms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://linkedmap.unizar.es/def/bcn25/ACUEDU> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Aqueduct" ;
+	dc:description "Elevated structure for water conduction" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/AGR_EDI> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Building group" ;
+	dc:description "Group of buildings and facilities with a fixed aim.  Usually gathered and organized with a single name." ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/ARBOL> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Tree" ;
+	dc:description "Tree" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hb/>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/AUTOP_AUTOV> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Motorway/Highway" ;
+	dc:description "Roads with more than one lane per direction" ;
+	skos:related <http://inspire.ec.europa.eu/theme/tn>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/CALLE> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ; 
+    dc:title "Street" ;
+	dc:description "Public roads inside of a city" ;
+	skos:related <http://inspire.ec.europa.eu/theme/tn>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/CAMINO> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Path" ;
+	dc:description "Unpaved road" ;
+	skos:related <http://inspire.ec.europa.eu/theme/tn>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/CARR_CONV> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Conventional Road" ;
+	dc:description "Conventional Road" ;
+	skos:related <http://inspire.ec.europa.eu/theme/tn>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/CASCAD> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Waterfall" ;
+	dc:description "Waterfall" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/CAU_ART> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Artificial Channel" ;
+	dc:description "Human structure to conduct water" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/CEMENT> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Graveyard" ;
+	dc:description "Piece of land devoted to allocate graves" ;
+	skos:related <http://inspire.ec.europa.eu/theme/us>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/CEN_ELEC_ANT_BCN> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Power Station" ;
+	dc:description "Power Station documented before BCN project" ;
+	skos:related <http://inspire.ec.europa.eu/theme/er>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/CEN_ELEC> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Power Station" ;
+	dc:description "Power Station documented within BCN project" ;
+	skos:related <http://inspire.ec.europa.eu/theme/er>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/CON_HID_S> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Hydrographic Structure" ;
+	dc:description "Any Structure related to water conduction or usage" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/CON_HIS_L> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Historic Structure" ;
+	dc:description "Any Structure considered of historical interest (Lines)" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/CON_HIS_S> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Historic Structure" ;
+	dc:description "Any Structure considered of historical interest (Surfaces)" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/CUEVA> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Cave" ;
+	dc:description "Underground hollow" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/EDI_ANT_BCN> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Buildings" ;
+	dc:description "Buildings documented before BCN project" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/EDI_REL_ANT_BCN> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Religious Buildings" ;
+	dc:description "Building devoted to religious purposes documented before BCN project" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/EDI_REL> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Religious Buildings" ;
+	dc:description "Building devoted to religious purposes documented within BCN project" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/EDIFIC> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Buildings" ;
+	dc:description "Buildings documented within BCN project" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/EJE_CON> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Hydro-graphic Axis" ;
+	dc:description "Imaginary line describing a river" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/ENT_POB> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Settlement" ;
+	dc:description "Human settlement" ;
+	skos:related <http://inspire.ec.europa.eu/theme/pd>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/EST_FC> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Rail station" ;
+	dc:description "Rail station" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/EXP_MIN_P> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Mining camp" ;
+	dc:description "Point or Surface devoted to minery" ;
+	skos:related <http://inspire.ec.europa.eu/theme/mr>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/INF_FFCC_ANT_BCN> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Railway facilities" ;
+	dc:description "Any railway structure" ;
+	skos:related <http://inspire.ec.europa.eu/theme/tn>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/INS_DEP> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Sport facilities" ;
+	dc:description "Any sport structure" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/INS_IND> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Industrial Facilities" ;
+	dc:description "Any industrial structure" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/INS_REC_P> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Leisure Facilities" ;
+	dc:description "Any leisure structure (Points)" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/INS_REC_S> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Leisure Facilities" ;
+	dc:description "Any leisure structure (Surfaces)" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/ISLA> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Island" ;
+	dc:description "Island" ;
+	skos:related <http://inspire.ec.europa.eu/theme/ge>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/ITINER> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Itinerary" ;
+	dc:description "Route" ;
+	skos:related <http://inspire.ec.europa.eu/theme/tn>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/KIL_CARR> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Road milestone" ;
+	dc:description "Kilometric signal in a road" ;
+	skos:related <http://inspire.ec.europa.eu/theme/tn>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/LAGUNA> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Lake" ;
+	dc:description "Lake (Surfaces)" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/LIN_EMB> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Lake" ;
+	dc:description "Lake (Lines)" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/LIN_ROT> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Mountain Chain" ;
+	dc:description "Imaginary line describing a mountain chain" ;
+	skos:related <http://inspire.ec.europa.eu/theme/ge>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/MOL_ANT_BCN> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Mill" ;
+	dc:description "Building devoted to mill documented before BCN project" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/MOLINO> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Mill" ;
+	dc:description "Building devoted to mill documented within BCN project" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/MONUME> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Monument" ;
+	dc:description "Building considered of historial interest" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/PRESA> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Reservoir" ;
+	dc:description "Human structure in a water flow used to reservoir water" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/PUERTO> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Harbour" ;
+	dc:description "Harbour" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/PUN_ACO> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Reference point" ;
+	dc:description "Reference point with a known altitude used to interpret maps" ;
+	skos:related <http://inspire.ec.europa.eu/theme/el>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/RAMBLA> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Ravine" ;
+	dc:description "Natural water flow" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/RIA> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Estuary" ;
+	dc:description "Natural water flow" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/RIO> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "River" ;
+	dc:description "Natural water flow" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/SALINA> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "River" ;
+	dc:description "Natural water flow" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/SENDA> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Path" ;
+	dc:description "Path" ;
+	skos:related <http://inspire.ec.europa.eu/theme/tn>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/TOP_POS_GEO> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Place name" ;
+	dc:description "Place name" ;
+	skos:related <http://inspire.ec.europa.eu/theme/gn>
+.
+
+<http://linkedmap.unizar.es/def/bcn25/TOP_SIN_GEO> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/BCN> ;
+    dc:title "Place name" ;
+	dc:description "Place name" ;
+	skos:related <http://inspire.ec.europa.eu/theme/gn>
+.
+
+<http://linkedmap.unizar.es/def/osm/POINTS> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/OSM> ;
+    dc:title "Place name" ;
+	dc:description "Place name" ;
+	skos:related <http://inspire.ec.europa.eu/theme/gn>
+.
+
+<http://linkedmap.unizar.es/def/osm/BUILDINGS> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/OSM> ;
+    dc:title "Buildings" ;
+	dc:description "Buildings" ;
+	skos:related <http://inspire.ec.europa.eu/theme/bu>
+.
+
+<http://linkedmap.unizar.es/def/osm/LANDUSE> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/OSM> ;
+    dc:title "Land use" ;
+	dc:description "Land use" ;
+	skos:related <http://inspire.ec.europa.eu/theme/lu>
+.
+
+<http://linkedmap.unizar.es/def/osm/PLACES> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/OSM> ;
+    dc:title "Places" ;
+	dc:description "Places" ;
+	skos:related <http://inspire.ec.europa.eu/theme/pd>
+.
+
+<http://linkedmap.unizar.es/def/osm/RAILWAYS> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/OSM> ;
+    dc:title "Railways" ;
+	dc:description "Railways" ;
+	skos:related <http://inspire.ec.europa.eu/theme/tn>
+.
+
+<http://linkedmap.unizar.es/def/osm/ROADS> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/OSM> ;
+    dc:title "Roads" ;
+	dc:description "Roads" ;
+	skos:related <http://inspire.ec.europa.eu/theme/tn>
+.
+
+<http://linkedmap.unizar.es/def/osm/WATERWAYS> a lms:classification ;
+	dc:isPartOf <http://linkedmap.unizar.es/id/datasets/OSM> ;
+    dc:title "Waterways" ;
+	dc:description "Waterways" ;
+	skos:related <http://inspire.ec.europa.eu/theme/hy>
+.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

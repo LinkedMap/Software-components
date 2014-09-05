@@ -1,0 +1,22 @@
+#
+#   Container Integration Test Data
+#
+
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix container: <http://linkedmap.unizar.es/id/>
+@prefix server: <http://linkedmap.unizar.es/id/servers/>
+@prefix dataset: <http://linkedmap.unizar.es/id/datasets/>
+@prefix lms: <http://linkedmap.unizar.es/def/lms/> .
+
+container:servers a ldp:BasicContainer ;
+    ldp:contains server:ign_base . 
+    
+server:ign_base a lms:WebMapServer ;
+    lms:onlineResource <http://www.ign.es/wms-inspire/ign-base> .
+
+container:provenance a ldp:BasicContainer ;
+    ldp:contains server:ign_base. 
+    
+container:datasets a ldp:BasicContainer ;
+    ldp:contains dataset:DBpedia . 
+    

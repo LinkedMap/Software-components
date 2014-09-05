@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css"/>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
+<head th:include="layout :: head">
+</head>
+<body>
+    <div>
+        <h1><th:block th:text="${resourceDetails.getTitle()}"/> <small><a th:ref="${resourceDetails.getUrl()}"><th:block th:text="${resourceDetails.getUrl()}"/></a></small></h1>
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Title                                                      -->
+                    <!-- ========================================================== -->
+                    <td><span>Title</span>
+                    </td>
+                    <td><span><th:block th:text="${resourceDetails.getTitle()}"/></span>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Provenance                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Provenance</span>
+                    </td>
+                    <td>
+                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mainFeatureModal">
+  See provenance
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="mainFeatureModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Provenance</h4>
+      </div>
+      <div class="modal-body">
+       <pre class="prettyprint linenums language-xml"><th:block th:text="${resourceDetails.getProvenance()}"/></pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+                    
+                    
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Dataset                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Dataset</span>
+                    </td>
+                    <td><span><a th:ref="${resourceDetails.getDataset()}"><th:block th:text="${resourceDetails.getDataset()}"/></a></span>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Type                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Type</span>
+                    </td>
+                    <td><span><a th:ref="${resourceDetails.getType()}"><th:block th:text="${resourceDetails.getType()}"/></a></span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- Srs                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>SRS</span>
+                    </td>
+                    <td><span><th:block th:text="${resourceDetails.getSrs()}"/></span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- x,y                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Location</span>
+                    </td>
+                    <td><span><th:block th:text="${resourceDetails.getX()+','+resourceDetails.getY()}"/></span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- Comments                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Coments</span>
+                    </td>
+                    <td>
+                    	<table class="table table-striped">
+            				<tbody>
+                				<tr th:each="comment : ${resourceDetails.getComments()}">
+                					<td><span><th:block th:text="${comment.getDate()+' - '+comment.getUser()}"/></span></td>
+                					<td><span><th:block th:text="${comment.isValid()+' - '+comment.getComment()}"/></span></td>
+                				</tr>
+                			</tbody>
+                		</table>
+                    </td>
+                 </tr>
+            </tbody>
+        </table>
+        <p th:each="related: ${resourceDetails.getMappings()}">
+        	<h2><th:block th:text="${related.getMappingId()}"/><small><th:block th:text="'Score: '+${related.getMeasure()}"/></small></h2>
+        	<h3>Mapping comments</h3>
+        	<table class="table table-striped">
+            				<tbody>
+                				<tr th:each="comment : ${related.getComments()}">
+                					<td><span><th:block th:text="${comment.getDate()+' - '+comment.getUser()}"/></span></td>
+                					<td><span><th:block th:text="${comment.isValid()+' - '+comment.getComment()}"/></span></td>
+                				</tr>
+                			</tbody>
+             </table>
+             <h3>Related feature</h3>
+        	<table class="table table-striped">
+            <tbody>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Title                                                      -->
+                    <!-- ========================================================== -->
+                    <td><span>Title</span>
+                    </td>
+                    <td><span><th:block th:text="${related.getRelatedResource().getTitle()}"/></span>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Provenance                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Provenance</span>
+                    </td>
+                    <td>
+                    <button class="btn btn-primary btn-lg" data-toggle="modal"  th:attr="data-target=${'#'+related.getRelatedResource().getUrl().hashCode()}">
+  See provenance
+</button>
+
+<!-- Modal -->
+<div class="modal fade" th:id="${related.getRelatedResource().getUrl().hashCode()}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Provenance</h4>
+      </div>
+      <div class="modal-body">
+       <pre class="prettyprint linenums language-xml"><th:block th:text="${related.getRelatedResource().getProvenance()}"/></pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Dataset                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Dataset</span>
+                    </td>
+                    <td><span><a th:ref="${related.getRelatedResource().getDataset()}"><th:block th:text="${related.getRelatedResource().getDataset()}"/></a></span>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Type                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Type</span>
+                    </td>
+                    <td><span><a th:ref="${related.getRelatedResource().getType()}"><th:block th:text="${related.getRelatedResource().getType()}"/></a></span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- Srs                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>SRS</span>
+                    </td>
+                    <td><span><th:block th:text="${related.getRelatedResource().getSrs()}"/></span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- x,y                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Location</span>
+                    </td>
+                    <td><span><th:block th:text="${related.getRelatedResource().getX()+','+related.getRelatedResource().getY()}"/></span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- Comments                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Coments</span>
+                    </td>
+                    <td>
+                    	<table class="table table-striped">
+            				<tbody>
+                				<tr th:each="comment : ${related.getRelatedResource().getComments()}">
+                					<td><span><th:block th:text="${comment.getDate()+' - '+comment.getUser()}"/></span></td>
+                					<td><span><th:block th:text="${comment.isValid()+' - '+comment.getComment()}"/></span></td>
+                				</tr>
+                			</tbody>
+                		</table>
+                    </td>
+                 </tr>
+            </tbody>
+        </table>
+        </p>
+   </div>
+</body>
+</html>
+

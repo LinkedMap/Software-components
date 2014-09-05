@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css"/>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
+<head th:include="layout :: head">
+</head>
+<body>
+    <div>
+        <h1><th:block th:text="${resourceDetails.getTitle()}"/> <small><a th:attr="href=${resourceDetails.getUrl()}"><th:block th:text="${resourceDetails.getUrl()}"/></a></small></h1>
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Title                                                      -->
+                    <!-- ========================================================== -->
+                    <td><span>Title</span>
+                    </td>
+                    <td><span><th:block th:text="${resourceDetails.getTitle()}"/></span>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Provenance                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Provenance</span>
+                    </td>
+                    <td>
+                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mainFeatureModal">
+  See provenance
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="mainFeatureModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Provenance</h4>
+      </div>
+      <div class="modal-body">
+       <pre class="prettyprint linenums language-xml"><th:block th:text="${resourceDetails.getProvenance()}"/></pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+                    
+                    
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Dataset                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Dataset</span>
+                    </td>
+                    <td><span><a th:attr="href=${resourceDetails.getDataset()}"><th:block th:text="${resourceDetails.getDataset()}"/></a></span>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Type                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Type</span>
+                    </td>
+                    <td><span>
+                    	<p th:each="type : ${resourceDetails.getType()}">
+                    		<a th:attr="href=${type}"><th:block th:text="${type}"/></a>
+                    	</p>
+                    	</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- Srs                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>SRS</span>
+                    </td>
+                    <td><span><th:block th:text="${resourceDetails.getSrs()}"/></span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- x,y                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Location</span>
+                    </td>
+                    <td><span><th:block th:text="${resourceDetails.getX()+','+resourceDetails.getY()}"/></span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- Replaces                                                   -->
+                    <!-- ========================================================== -->
+                    <td><span>Replaces</span>
+                    </td>
+                    <td><span><a th:attr="href=${resourceDetails.getReplaces()}"><th:block th:text="${resourceDetails.getReplaces()}"/></a></span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- Comments                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Coments</span>
+                    </td>
+                    <td>
+                		<p th:each="comment : ${resourceDetails.getComments()}">
+                    		<div th:if="${comment.isValid()} == true" class="has-success dropdown">
+  							<a data-toggle="dropdown" href="#"><strong><th:block th:text="${comment.getDate()+' - '+comment.getUser()}"/></strong></a>
+  								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                					<th:block th:text="${comment.isValid()+' - '+comment.getComment()}"/>
+                					<span class="has-success glyphicon glyphicon-ok form-control-feedback"></span>
+  								</ul>
+							</div>
+							<div th:if="${comment.isValid()} == false" class="has-error dropdown">
+							<a data-toggle="dropdown" href="#"><strong><th:block th:text="${comment.getDate()+' - '+comment.getUser()}"/></strong></a>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							    	<th:block th:text="${comment.isValid()+' - '+comment.getComment()}"/>
+									<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+								</ul>
+							</div>
+                    	</p>
+                    </td>
+                 </tr>
+            </tbody>
+        </table>
+        <p th:each="related: ${resourceDetails.getMappings()}">
+        	<h2><th:block th:text="${related.getMappingId()}"/><small><th:block th:text="'Score: '+${related.getMeasure()}"/></small></h2>
+        	<h3>Mapping comments</h3>
+                             		<p th:each="comment : ${related.getComments()}">
+                    		<div th:if="${comment.isValid()} == true" class="has-success dropdown">
+  							<a data-toggle="dropdown" href="#"><strong><th:block th:text="${comment.getDate()+' - '+comment.getUser()}"/></strong></a>
+  								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                					<th:block th:text="${comment.isValid()+' - '+comment.getComment()}"/>
+                					<span class="has-success glyphicon glyphicon-ok form-control-feedback"></span>
+  								</ul>
+							</div>
+							<div th:if="${comment.isValid()} == false" class="has-error dropdown">
+							<a data-toggle="dropdown" href="#"><strong><th:block th:text="${comment.getDate()+' - '+comment.getUser()}"/></strong></a>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							    	<th:block th:text="${comment.isValid()+' - '+comment.getComment()}"/>
+									<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+								</ul>
+							</div>
+                    	</p>
+             
+             <h3>Related feature</h3>
+        	<table class="table table-striped">
+            <tbody>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Title                                                      -->
+                    <!-- ========================================================== -->
+                    <td><span>Title</span>
+                    </td>
+                    <td><span><th:block th:text="${related.getRelatedResource().getTitle()}"/></span>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Url                                                      -->
+                    <!-- ========================================================== -->
+                    <td><span>Url</span>
+                    </td>
+                    <td><span><a th:attr="href=${related.getRelatedResource().getUrl()}"><th:block th:text="${related.getRelatedResource().getUrl()}"/></a></span>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Provenance                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Provenance</span>
+                    </td>
+                    <td>
+                    <button class="btn btn-primary btn-lg" data-toggle="modal"  th:attr="data-target=${'#'+related.getRelatedResource().getUrl().hashCode()}">
+  See provenance
+</button>
+
+<!-- Modal -->
+<div class="modal fade" th:id="${related.getRelatedResource().getUrl().hashCode()}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Provenance</h4>
+      </div>
+      <div class="modal-body">
+       <pre class="prettyprint linenums language-xml"><th:block th:text="${related.getRelatedResource().getProvenance()}"/></pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Dataset                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Dataset</span>
+                    </td>
+                    <td><span><a th:attr="href=${related.getRelatedResource().getDataset()}"><th:block th:text="${related.getRelatedResource().getDataset()}"/></a></span>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ========================================================== -->
+                    <!-- Type                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Type</span>
+                    </td>
+                    <td><span>
+                    	<p th:each="type : ${related.getRelatedResource().getType()}">
+                    		<a th:attr="href=${type}"><th:block th:text="${type}"/></a>
+                    	</p>
+                    	</span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- Srs                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>SRS</span>
+                    </td>
+                    <td><span><th:block th:text="${related.getRelatedResource().getSrs()}"/></span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- x,y                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Location</span>
+                    </td>
+                    <td><span><th:block th:text="${related.getRelatedResource().getX()+','+related.getRelatedResource().getY()}"/></span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- Replaces                                                   -->
+                    <!-- ========================================================== -->
+                    <td><span>Replaces</span>
+                    </td>
+                    <td><span><a th:attr="href=${related.getRelatedResource().getReplaces()}"><th:block th:text="${related.getRelatedResource().getReplaces()}"/></a></span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <!-- ========================================================== -->
+                    <!-- Comments                                                 -->
+                    <!-- ========================================================== -->
+                    <td><span>Coments</span>
+                    </td>
+                    <td>
+                    	<p th:each="comment : ${related.getRelatedResource().getComments()}">
+                    		<div th:if="${comment.isValid()} == true" class="has-success dropdown">
+  							<a data-toggle="dropdown" href="#"><strong><th:block th:text="${comment.getDate()+' - '+comment.getUser()}"/></strong></a>
+  								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                					<th:block th:text="${comment.isValid()+' - '+comment.getComment()}"/>
+                					<span class="has-success glyphicon glyphicon-ok form-control-feedback"></span>
+  								</ul>
+							</div>
+							<div th:if="${comment.isValid()} == false" class="has-error dropdown">
+							<a data-toggle="dropdown" href="#"><strong><th:block th:text="${comment.getDate()+' - '+comment.getUser()}"/></strong></a>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							    	<th:block th:text="${comment.isValid()+' - '+comment.getComment()}"/>
+									<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+								</ul>
+							</div>
+                    	</p>
+                    </td>
+                 </tr>
+            </tbody>
+        </table>
+        </p>
+   </div>
+</body>
+</html>
+
